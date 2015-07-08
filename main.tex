@@ -1,0 +1,165 @@
+\documentclass[letterpaper, 10 pt, conference]{ieeeconf}
+
+\let\labelindent\relax
+\input{preamble}
+
+\usepackage{blindtext}
+
+%===============================================================
+
+\title{\LARGE \bf
+Information Theoretic Probing Strategy for Localization of arbitrary closed tumors with no holes with the da Vinci Research Kit. 
+}
+
+\author{%
+Animesh Garg$^{1}$,
+Yiming Jen$^{2}$, 
+Stephen McKinley$^{3}$,
+Florian Pokorny$^{2}$,
+Ken Goldberg$^{1}$%
+\thanks{$^{1}$IEOR and EECS, University of California, Berkeley; {\{animesh.garg, goldberg\}@berkeley.edu}}%
+\thanks{$^{2}$EECS, University of California, Berkeley; {\{ftpokorny, \todo{put email here}\}@berkeley.edu}}%
+\thanks{$^{3}$Mechanical Engineering, University of California, Berkeley; {\{mckinley\}@berkeley.edu}}%
+%Authors are with the Department of Electrical Engineering and Computer Sciences, University of California at Berkeley, CA, USA.}
+}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+%==START SECTION==============================
+\begin{abstract}
+Test Text
+\end{abstract} 
+%==END SECTION==============================
+
+%==START SECTION==============================
+\section{Introduction}
+\label{sec:intro}
+%============================================
+
+\todo{mckinley et al.}
+Robotic surgical assistants (RSAs) such as the Intuitive Surgical's da~Vinci system have been shown to be effective in facilitating precise minimally invasive surgery \cite{Darzi2004_ARM,veldkamp2005laparoscopic}, by providing increased dexterity and control for the surgeon. In clinical usage, these devices are controlled by surgeons in local teleoperation mode (master-slave with negligible time delays) without haptic feedback. Tactile and force sensors have potential to provide haptic feedback enabling the surgeon to perform an array of survey operations such as in-situ diagnosis and localization.
+
+During open surgery, a surgeon can directly palpate tissue allowing localization of a number of subcutaneous (external organ membrane) or subserous (internal organ membrane) inclusions based on changes in tissue reaction force relative to surrounding substrate (parenchyma)~\cite{venkatesh2008magnetic}. Even though robot-assisted minimally invasive surgery (RMIS) is frequently used in cancer surgeries~\cite{ohuchida2013robotic}, the lack of force perception in RMIS has been shown to increase tissue trauma and accidental tissue damage~\cite{demi2005touch}.
+Williams et al.~\cite{williams2010radical} show that the lack of tactile or force feedback in RMIS, as compared to open surgery, can lead to increased likelihood of leaving behind target cells during debridement in a diseased region.
+
+\todo{new text}
+
+Close range probing through contact such as a tactile sensing, or non-contact modes such as acoustic and optical sensing can result in a variety of observation models. Depending upon the requirement of precision in the use case, resulting estimates can vary from exact to ambiguous. Furthermore, (a) the observation models could be asymmetric, implying estimates are non-gaussian; and (b) the affects of actions based on uncertain estimates could have a asymmetric distributions possibly with discrete regimes.
+
+For instance, ambiguity in tactile localization of a pus-filled cyst in an organ during surgery can result in imprecision incision. A conservative estimate would result in cutting out healthy tissue, while too optimistic an estimate could result in dispersion of pus inside the body leading to complications. 
+
+In addition, the system may be required to make a choice of different modes of sensing with different associated costs. Such as careful and slow point probes could provide more reliable information than quick sliding/rolling motions across the region of interest. 
+
+We perform a characterization/calibration of the palpation probe to estimate the parameters of the observation model. We demonstrate in silico (simulation) the use of palpation probe with an information maximization approach for mapping boundaries of tumors 
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\linewidth]{figures/insert}
+% \vspace{-5pt}
+\caption{test}
+\label{fig:intro}
+\vspace{-15pt}
+\end{figure}
+
+\todo{Miller et al.}
+This paper presents an active search trajectorysynthesis technique for autonomous mobile robots with nonlinearmeasurements and dynamics. The presented approach uses theergodicity of a planned trajectory with respect to an expectedinformation density map to close the loop during search. Theergodic control algorithm does not rely on discretization ofthe search or action spaces, and is well posed for coveragewith respect to the expected information density whether theinformation is diffuse or localized, thus trading off betweenexploration and exploitation in a single objective function. Asa demonstration, we use a robotic electrolocation platform toestimate location and size parameters describing static targets inan underwater environment. Our results demonstrate that theergodic exploration of distributed information (EEDI) algorithmoutperforms commonly used information-oriented controllers,particularly when distractions are present.
+
+\todo{nichols et al.}\cite{nichols2015methods}
+
+\textbf{Contributions}:
+
+
+%==END SECTION==============================
+
+%==START SECTION==============================
+\section{Related Work}
+\label{sec:relWork}
+%============================================
+\todo{Animesh: Fill out the related work.}
+Tactile force sensing is used by humans to explore, manipulate, or respond to their environment~\cite{cutkosky2008force}.
+Robotic tactile sensing is applied in diverse fields including surgical devices, industrial equipment, and dexterous robotic hands~\cite{cutkosky2008force}.
+
+Palpation sensors are a subclass of tactile and force sensors that mimic the biological sense of cutaneous touch. In RMIS, palpation sensors can estimate relative tissue stiffness and allow the surgeon to adjust force control input for safer tissue manipulation.
+
+Tactile feedback can be obtained by using a number of transduction principles~\cite{konstantinova2014implementation, puangmali2008state}.\ignore{A study by Puangmali et al.~\cite{puangmali2008state} also reviews tactile sensing at the end-effectors of RSAs classified by transduction principle used in sensors.} We refer the reader to Gir{\~a}o et al.~\cite{girao2013tactile} and Tiwana et al.~\cite{tiwana2012review} for a detailed survey of existing tactile and force feedback devices in the context of robotic and biomedical applications respectively. 
+
+Konstantinova et al.~\cite{konstantinova2014implementation} provide a survey of a number of RMIS tactile feedback devices 
+
+\todo{Key citation}:\cite{goldman2013algorithms}.
+
+
+\textbf{Our Approach}: While many of the tactile and force sensors described by \citep{goldman2013algorithms}, our algorithm....
+This paper presents a novel ...
+
+%==END SECTION==============================
+
+%==START SECTION==============================
+\section{Problem Formulation}
+\label{sec:problem}
+%============================================
+We consider a region of interest $\text{RoI} \in \mathbb{R}^2$ and represent it using its boundary $\mathcal{R} \in \mathbb{R}^2$. We also have a tumor of non-zero area in the interior of $\mathcal{R}$ represented by its boundary curve $\mathcal{T}$. The boundary of tumor $\mathcal{T}$ is a closed curve and $\mathcal{T}$ is assumed to be a topological circle. (\todo{can we generalize to rings, may be use homology!}). 
+
+We also assume the maximum local \textit{curvature} of $\mathcal{T}$ is $\kappa_m$. It is worth noting that this enforces that the curve is differentiable at all points, further provides a lower bound on the area of the tumor. We also assume a minimum \textit{width} of $\mathcal{T}$ across any line crossing the curve is $w_m$.
+The constraint on width ensures that the curve $\mathcal{T}$ is sufficiently thick everywhere to be detected by the probe under ideal test conditions.
+
+We also have a probing device with a measurement model dependent on the probing mode: continuous or discrete. Based on the observations in RMIS probing devices, continuous probing mode is \textit{faster} (lower cost) but provides noisier measurements than a \textit{slow} discrete point probe action. We specify the measurement model to be unimodal with a family of distribution $\mathcal{D}$  parameterized by its sufficient statistics $\Theta$. The values of parameters for continuous mode $\Theta_c$ are different from teh discrete mode $\Theta_d$.
+
+
+\subsection{Evaluation Metrics}
+We will begin the experimentation with a characterization of the noise model of the probe using ground truth tissue phantoms with embedded cysts. To evaluate the error in estimated boundary  with respect to a given boundary, we can use: 
+\begin{enumerate}[leftmargin=*]
+\item[a.] \textbf{Symmetric Difference}: We can use the absolute distance of a set of corresponding points along the actual curve and the estimated curve. 
+\item[b.] \textbf{Warping Distance}: We can use a thin plate spline warping function to generate the distance between the actual curve and the estimated curve. 
+\end{enumerate}
+
+%==END SECTION==============================
+
+%==START SECTION==============================
+\section{Our Method}
+\label{sec:approach}
+%============================================
+% \todo{Animesh: Fill out the details of the algorithm with all the necessary notation and background.}
+We use a method for Optimal Planning for Information
+Acquisition using a belief update model. 
+
+
+%==END SECTION==============================
+
+%==START SECTION==============================
+\section{Experiments and Results}
+\label{sec:expt}
+%===========================================
+% \blindtext
+%\blindtext
+%==END SECTION==============================
+
+%==START SECTION==============================
+\section{Discussion and Future Work}
+\label{sec:discussion}
+%============================================
+% \blindtext
+%==END SECTION==============================
+
+%==START SECTION==============================
+\section{Conclusions}
+\label{sec:conclusion}
+%============================================
+% \blindtext
+%==END SECTION==============================
+
+%==START SECTION==============================
+% \vspace{-5pt}
+\subsection*{Acknowledgements}
+\label{sec:ack}
+%============================================
+% \blindtext
+%==END SECTION==============================
+
+\bibliographystyle{IEEEtranS}
+\bibliography{library,palpationCASE}
+
+\end{document}
